@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://redistogo:aa5f12ccfd69c5aa4edc8e1f305c8478@hammerjaw.redistogo.com:11848/
+  # channel_prefix: my_chat_app_production
