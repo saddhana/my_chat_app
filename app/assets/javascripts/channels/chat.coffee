@@ -9,7 +9,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when there's incoming data on the websocket for this channel
     $('#dummy_message')
       .clone()
-      .text(data['message'])
+      .html("<div class='row no-gutters'><div class='col'><div class='message-content'><p class='mb-1'></p><p>" + data['message'] + "</p><p></p></div></div></div>")
       .appendTo($('#messages'));
 
   send_message: (data) ->

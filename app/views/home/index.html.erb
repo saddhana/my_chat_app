@@ -1,18 +1,41 @@
 <!-- <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p> -->
 
-<div style="text-align: center;">
-  <h2>Chat Application</h2>
-
-  <%= form_for @message do |form| %>
-    <%= form.label :body, 'Type a message' %>
-    <%= form.text_field :body, required: true, data: { message: true } %>
-  <% end %>
-
-  <!-- Dummy message we will be using this to create a new message -->
-  <p id="dummy_message"></p>
-
-  <div id="messages">
-    <%= render @messages %>
+<h1>Server 01</h1>
+<!-- Dummy message we will be using this to create a new message -->
+<div class="row">
+  <div class="col-12 col-md-3">
+    <nav class="nav flex-column">
+      <nav class="nav-link room-nav-link">
+          Server 01
+      </nav>
+      <nav class="nav-link room-nav-link">
+        Type your message and press enter to send your message
+      </nav>
+    </nav>
+  </div>
+  <div class="col">
+    <div class="chat">
+      <div id="messages">
+        <% @messages.each do |message| %>
+          <div id="dummy_message" class="chat-message-container">
+            <div class="row no-gutters">
+              <div class="col">
+                <div class="message-content">
+                  <p class="mb-1">
+                    <%= render message %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= form_for @message do |form| %>
+      <div class="form-group">
+          <%= form.text_field :body, required: true, data: { message: true }, class: 'col-sm-12 chat-input', placeholder: "Type a message", autocomplete: "off"%>
+        <% end %>
+      </div>
   </div>
 </div>
